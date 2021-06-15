@@ -12,6 +12,8 @@ export const reStyleWithModule = /[^_]\.(css|less|styl|scss|sass|sss)$/;
 export const reStyleWithoutModule = /_\.(css|less|styl|scss|sass|sss)$/;
 export const reImage = /\.(bmp|gif|jpg|jpeg|png|svg)$/;
 
+const reJson = /\.json$/;
+
 const kb = 1024;
 
 export const publicPath = getWithBaseUrl('/assets/', getConfig('baseUrl'));
@@ -211,7 +213,7 @@ export const getStaticRules = ({
   // Return public URL for all assets unless explicitly excluded
   // DO NOT FORGET to update `exclude` list when you adding a new loader
   {
-    exclude: [reScript, reStyle, reImage],
+    exclude: [reScript, reStyle, reImage, reJson],
     loader: 'file-loader',
     options: {
       name: staticFileName,
